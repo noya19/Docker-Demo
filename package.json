@@ -1,0 +1,45 @@
+{
+  "name": "docker-demo",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "private": true,
+  "scripts": {
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
+    "build:watch": "tsc --watch",
+    "build": "tsc",
+    "dev": "concurrently \"npm run build:watch\" \"nodemon dist/index.js\"",
+    "start": "npm run build:ts && fastify start -l info dist/app.js",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^5.0.0",
+    "@fastify/cors": "^8.3.0",
+    "@fastify/sensible": "^5.0.0",
+    "@fastify/swagger": "^8.9.0",
+    "@fastify/swagger-ui": "^1.9.3",
+    "@sinclair/typebox": "^0.31.5",
+    "fastify": "^4.0.0",
+    "fastify-cli": "^5.8.0",
+    "fastify-plugin": "^4.0.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.4",
+    "@types/tap": "^15.0.5",
+    "concurrently": "^7.0.0",
+    "fastify-tsconfig": "^1.0.1",
+    "nodemon": "^3.0.1",
+    "tap": "^16.1.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "main": "app.ts",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": []
+}
